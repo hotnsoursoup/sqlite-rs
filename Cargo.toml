@@ -1,0 +1,48 @@
+[package]
+name = "sqlite-rs"
+version = "0.2.0"
+edition = "2021"
+rust-version = "1.77"
+description = "High-performance SQLite connection pool with read/write split, WAL monitoring, and migration support"
+license = "MIT"
+repository = "https://github.com/hotnsoursoup/sqlite-rs"
+keywords = ["sqlite", "database", "pool", "async", "tokio"]
+categories = ["database", "asynchronous"]
+exclude = ["Cargo.lock", ".github/**", ".internal/**", "target/**"]
+
+[lib]
+name = "sqlite_rs"
+
+[features]
+default = ["wal-monitor"]
+wal-monitor = []
+tracing = ["dep:tracing"]
+
+[dependencies]
+# Async runtime
+tokio = { version = "1", features = ["sync", "time", "fs", "macros", "rt"] }
+tokio-rusqlite = "0.6"
+
+# Connection pooling
+deadpool = "0.12"
+deadpool-sqlite = "0.9"
+
+# SQLite
+rusqlite = { version = "0.32", features = ["bundled", "modern_sqlite", "backup"] }
+
+# Error handling
+thiserror = "2"
+
+# Utilities
+parking_lot = "0.12"
+fastrand = "2"
+
+# Optional
+tracing = { version = "0.1", optional = true }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["full", "test-util"] }
+# tempfile 3.25+ depends on a getrandom release that requires Cargo's
+# stabilized 2024 edition support. Keep dev-dependency resolution MSRV-safe.
+tempfile = ">=3.10, <3.25"
+futures = "0.3"
