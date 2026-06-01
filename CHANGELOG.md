@@ -10,6 +10,15 @@ requires otherwise.
 
 No unreleased changes.
 
+## 0.2.1 - 2026-06-01
+
+### Changed
+
+- Renamed the crate from `sqlite-rs` to `sqlite-kit` (library `sqlite_rs` to
+  `sqlite_kit`) because the `sqlite-rs` name on crates.io is taken by an
+  unrelated crate. Update imports to `use sqlite_kit::...`. No API changes.
+- Renamed the GitHub repository to `hotnsoursoup/sqlite-kit`.
+
 ## 0.2.0 - 2026-05-25
 
 ### Breaking

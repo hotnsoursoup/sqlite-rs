@@ -1,11 +1,11 @@
 [package]
 name = "sqlite-kit"
-version = "0.2.0"
+version = "0.2.1"
 edition = "2021"
 rust-version = "1.77"
 description = "High-performance SQLite connection pool with read/write split, WAL monitoring, and migration support"
 license = "MIT"
-repository = "https://github.com/hotnsoursoup/sqlite-rs"
+repository = "https://github.com/hotnsoursoup/sqlite-kit"
 keywords = ["sqlite", "database", "pool", "async", "tokio"]
 categories = ["database", "asynchronous"]
 exclude = ["Cargo.lock", ".github/**", ".internal/**", "target/**"]

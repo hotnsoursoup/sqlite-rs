@@ -1,6 +1,6 @@
 # sqlite-kit
 
-[![CI](https://github.com/hotnsoursoup/sqlite-rs/actions/workflows/ci.yml/badge.svg)](https://github.com/hotnsoursoup/sqlite-rs/actions/workflows/ci.yml)
+[![CI](https://github.com/hotnsoursoup/sqlite-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/hotnsoursoup/sqlite-kit/actions/workflows/ci.yml)
 ![MSRV](https://img.shields.io/badge/MSRV-1.77-blue)
 
 A pragmatic SQLite connection pool for Rust, with read/write split, WAL monitoring,
@@ -42,7 +42,7 @@ tokio = { version = "1", features = ["full"] }
 Or track the repository directly:
 
 ```toml
-sqlite-kit = { git = "https://github.com/hotnsoursoup/sqlite-rs", tag = "v0.2.0" }
+sqlite-kit = { git = "https://github.com/hotnsoursoup/sqlite-kit", tag = "v0.2.0" }
 ```
 
 ## Quick start
