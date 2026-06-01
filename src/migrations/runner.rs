@@ -97,7 +97,7 @@ pub struct MigrationRecord {
 /// # Example
 ///
 /// ```rust,no_run
-/// use sqlite_rs::{Migration, MigrationKind, run_migrations};
+/// use sqlite_kit::{Migration, MigrationKind, run_migrations};
 ///
 /// const MIGRATIONS: &[Migration] = &[
 ///     Migration {
@@ -110,7 +110,7 @@ pub struct MigrationRecord {
 ///     },
 /// ];
 ///
-/// # fn example(conn: &mut rusqlite::Connection) -> Result<(), sqlite_rs::PoolError> {
+/// # fn example(conn: &mut rusqlite::Connection) -> Result<(), sqlite_kit::PoolError> {
 /// run_migrations(conn, MIGRATIONS)?;
 /// # Ok(())
 /// # }
@@ -125,9 +125,9 @@ pub fn run_migrations(conn: &mut Connection, migrations: &[Migration]) -> Result
 /// # Example
 ///
 /// ```rust,no_run
-/// use sqlite_rs::{Migration, MigrationOptions, run_migrations_with_options};
+/// use sqlite_kit::{Migration, MigrationOptions, run_migrations_with_options};
 ///
-/// # fn example(conn: &mut rusqlite::Connection, migrations: &[Migration]) -> Result<(), sqlite_rs::PoolError> {
+/// # fn example(conn: &mut rusqlite::Connection, migrations: &[Migration]) -> Result<(), sqlite_kit::PoolError> {
 /// // Dry run to preview changes
 /// let result = run_migrations_with_options(
 ///     conn,
@@ -355,8 +355,8 @@ fn apply_migration(
 /// # Example
 ///
 /// ```rust,no_run
-/// # fn example(conn: &rusqlite::Connection) -> Result<(), sqlite_rs::PoolError> {
-/// let history = sqlite_rs::get_migration_history(conn)?;
+/// # fn example(conn: &rusqlite::Connection) -> Result<(), sqlite_kit::PoolError> {
+/// let history = sqlite_kit::get_migration_history(conn)?;
 /// for record in &history {
 ///     println!("{}: {} (applied: {}, {}ms)",
 ///         record.version, record.description, record.applied_at, record.duration_ms);
@@ -406,8 +406,8 @@ pub fn get_migration_history(conn: &Connection) -> Result<Vec<MigrationRecord>> 
 /// # Example
 ///
 /// ```rust,no_run
-/// # fn example(conn: &rusqlite::Connection) -> Result<(), sqlite_rs::PoolError> {
-/// if sqlite_rs::is_migration_applied(conn, "1.2.0")? {
+/// # fn example(conn: &rusqlite::Connection) -> Result<(), sqlite_kit::PoolError> {
+/// if sqlite_kit::is_migration_applied(conn, "1.2.0")? {
 ///     println!("Migration 1.2.0 has been applied");
 /// }
 /// # Ok(())
@@ -433,10 +433,10 @@ pub fn is_migration_applied(conn: &Connection, version: &str) -> Result<bool> {
 /// # Example
 ///
 /// ```rust,no_run
-/// use sqlite_rs::Migration;
+/// use sqlite_kit::Migration;
 ///
-/// # fn example(conn: &rusqlite::Connection, migrations: &[Migration]) -> Result<(), sqlite_rs::PoolError> {
-/// let pending = sqlite_rs::get_pending_migrations(conn, migrations)?;
+/// # fn example(conn: &rusqlite::Connection, migrations: &[Migration]) -> Result<(), sqlite_kit::PoolError> {
+/// let pending = sqlite_kit::get_pending_migrations(conn, migrations)?;
 /// println!("{} migrations pending", pending.len());
 /// # Ok(())
 /// # }

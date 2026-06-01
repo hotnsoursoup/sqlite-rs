@@ -8,12 +8,12 @@
 //! # Example
 //!
 //! ```rust,no_run
-//! use sqlite_rs::{DatabasePool, PoolConfig};
-//! use sqlite_rs::observer::{MetricsCollector, QueryLogger};
-//! use sqlite_rs::profiling::QueryProfiler;
+//! use sqlite_kit::{DatabasePool, PoolConfig};
+//! use sqlite_kit::observer::{MetricsCollector, QueryLogger};
+//! use sqlite_kit::profiling::QueryProfiler;
 //! use std::time::Duration;
 //!
-//! # async fn example() -> Result<(), sqlite_rs::PoolError> {
+//! # async fn example() -> Result<(), sqlite_kit::PoolError> {
 //! let metrics = MetricsCollector::new();
 //! let profiler = QueryProfiler::new(Duration::from_millis(100));
 //!

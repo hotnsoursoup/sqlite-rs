@@ -71,7 +71,7 @@ impl Default for OverflowPolicy {
 /// # Example
 ///
 /// ```rust
-/// use sqlite_rs::write_queue::{WriteQueueConfig, OverflowPolicy};
+/// use sqlite_kit::write_queue::{WriteQueueConfig, OverflowPolicy};
 /// use std::time::Duration;
 ///
 /// // Default config: 1000 capacity, 5s timeout

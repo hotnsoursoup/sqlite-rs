@@ -29,7 +29,7 @@ impl Migration {
     /// # Example
     ///
     /// ```rust
-    /// use sqlite_rs::Migration;
+    /// use sqlite_kit::Migration;
     ///
     /// let m = Migration::baseline("1.0.0", r#"
     ///     CREATE TABLE users (id INTEGER PRIMARY KEY, name TEXT);
@@ -52,7 +52,7 @@ impl Migration {
     /// # Example
     ///
     /// ```rust
-    /// use sqlite_rs::Migration;
+    /// use sqlite_kit::Migration;
     ///
     /// let m = Migration::incremental("1.1.0", "1.0.0", "ALTER TABLE users ADD COLUMN email TEXT;")
     ///     .with_description("Add email column to users");

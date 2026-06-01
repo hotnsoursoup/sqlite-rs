@@ -28,8 +28,8 @@ pub enum SchemaState {
 /// # Example
 ///
 /// ```rust,no_run
-/// # fn example(conn: &rusqlite::Connection) -> Result<(), sqlite_rs::PoolError> {
-/// if let Some(version) = sqlite_rs::get_current_version(conn)? {
+/// # fn example(conn: &rusqlite::Connection) -> Result<(), sqlite_kit::PoolError> {
+/// if let Some(version) = sqlite_kit::get_current_version(conn)? {
 ///     println!("Current schema version: {}", version);
 /// } else {
 ///     println!("No schema version recorded (fresh database)");
@@ -58,9 +58,9 @@ pub fn get_current_version(conn: &Connection) -> Result<Option<String>> {
 /// # Example
 ///
 /// ```rust,no_run
-/// use sqlite_rs::{detect_schema_state, SchemaState};
+/// use sqlite_kit::{detect_schema_state, SchemaState};
 ///
-/// # fn example(conn: &rusqlite::Connection) -> Result<(), sqlite_rs::PoolError> {
+/// # fn example(conn: &rusqlite::Connection) -> Result<(), sqlite_kit::PoolError> {
 /// let state = detect_schema_state(conn, &["users", "posts", "comments"])?;
 /// match state {
 ///     SchemaState::Empty => println!("Fresh database"),
@@ -138,7 +138,7 @@ pub fn detect_schema_state(conn: &Connection, expected_tables: &[&str]) -> Resul
 /// # Example
 ///
 /// ```rust
-/// use sqlite_rs::compare_versions;
+/// use sqlite_kit::compare_versions;
 ///
 /// assert!(compare_versions("1.0.0", "1.0.1") < 0);
 /// assert!(compare_versions("2.0.0", "1.9.9") > 0);

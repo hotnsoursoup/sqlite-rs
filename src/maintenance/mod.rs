@@ -6,9 +6,9 @@
 //! # Example
 //!
 //! ```rust,no_run
-//! use sqlite_rs::maintenance::{health_check, vacuum, analyze};
+//! use sqlite_kit::maintenance::{health_check, vacuum, analyze};
 //!
-//! # async fn example(pool: &sqlite_rs::DatabasePool) -> Result<(), sqlite_rs::PoolError> {
+//! # async fn example(pool: &sqlite_kit::DatabasePool) -> Result<(), sqlite_kit::PoolError> {
 //! // Check database health
 //! let health = health_check(pool).await?;
 //! if health.is_healthy() {

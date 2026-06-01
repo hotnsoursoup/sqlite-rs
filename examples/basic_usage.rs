@@ -1,8 +1,8 @@
-//! Basic usage example for sqlite-rs.
+//! Basic usage example for sqlite-kit.
 //!
 //! Run with: cargo run --example basic_usage
 
-use sqlite_rs::{DatabasePool, Migration, PoolConfig};
+use sqlite_kit::{DatabasePool, Migration, PoolConfig};
 use std::time::Duration;
 
 const MIGRATIONS: &[Migration] = &[
@@ -28,7 +28,7 @@ const MIGRATIONS: &[Migration] = &[
 
             CREATE INDEX idx_posts_user ON posts(user_id);
         "#,
-        kind: sqlite_rs::MigrationKind::Baseline,
+        kind: sqlite_kit::MigrationKind::Baseline,
         creates_tables: &["users", "posts"],
     },
     Migration {
@@ -36,7 +36,7 @@ const MIGRATIONS: &[Migration] = &[
         from_version: "1.0.0",
         description: "Add user status",
         sql: "ALTER TABLE users ADD COLUMN status TEXT DEFAULT 'active';",
-        kind: sqlite_rs::MigrationKind::Incremental,
+        kind: sqlite_kit::MigrationKind::Incremental,
         creates_tables: &[],
     },
 ];
@@ -44,7 +44,7 @@ const MIGRATIONS: &[Migration] = &[
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Create a temporary database for this example
-    let temp_dir = std::env::temp_dir().join("sqlite-rs-example");
+    let temp_dir = std::env::temp_dir().join("sqlite-kit-example");
     std::fs::create_dir_all(&temp_dir)?;
     let db_path = temp_dir.join("example.db");
 
@@ -85,7 +85,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             [],
         )?;
         tx.execute(
-            "INSERT INTO posts (user_id, title, content) VALUES (1, 'Rust is Great', 'Learning sqlite-rs')",
+            "INSERT INTO posts (user_id, title, content) VALUES (1, 'Rust is Great', 'Learning sqlite-kit')",
             [],
         )?;
         tx.execute(

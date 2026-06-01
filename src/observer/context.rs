@@ -158,7 +158,7 @@ impl OperationContext {
     /// # Example
     ///
     /// ```rust
-    /// # use sqlite_rs::observer::OperationContext;
+    /// # use sqlite_kit::observer::OperationContext;
     /// let mut ctx = OperationContext::new("SELECT 1");
     /// ctx.set("start_time", 12345u64);
     /// ```
@@ -173,7 +173,7 @@ impl OperationContext {
     /// # Example
     ///
     /// ```rust
-    /// # use sqlite_rs::observer::OperationContext;
+    /// # use sqlite_kit::observer::OperationContext;
     /// let mut ctx = OperationContext::new("SELECT 1");
     /// ctx.set("count", 42u32);
     /// assert_eq!(ctx.get::<u32>("count"), Some(&42));

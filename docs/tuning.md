@@ -1,6 +1,6 @@
 # Tuning
 
-`sqlite-rs` ships with defaults that are reasonable for a small service. This
+`sqlite-kit` ships with defaults that are reasonable for a small service. This
 document explains what each knob does, when to change it, and which `PRAGMA`s
 are set automatically.
 
@@ -162,9 +162,9 @@ Routine checkpoints are noise — let the monitor and SQLite handle them.
 The library exposes enough to confirm changes are doing what you think:
 
 ```rust
-use sqlite_rs::observer::MetricsCollector;
-use sqlite_rs::profiling::QueryProfiler;
-use sqlite_rs::PoolConfig;
+use sqlite_kit::observer::MetricsCollector;
+use sqlite_kit::profiling::QueryProfiler;
+use sqlite_kit::PoolConfig;
 
 let metrics = MetricsCollector::new();
 let profiler = QueryProfiler::default();
@@ -172,7 +172,7 @@ let config = PoolConfig::default()
     .with_observer(metrics.clone())
     .with_observer(profiler.clone());
 
-let pool = sqlite_rs::DatabasePool::open("data/app.db", config).await?;
+let pool = sqlite_kit::DatabasePool::open("data/app.db", config).await?;
 
 let pool_stats = pool.stats();
 // reader_pool_size, reader_pool_available, reader_pool_waiting

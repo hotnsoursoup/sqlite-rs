@@ -71,9 +71,9 @@ impl HealthCheck {
 /// # Example
 ///
 /// ```rust,no_run
-/// use sqlite_rs::maintenance::{health_check, HealthStatus};
+/// use sqlite_kit::maintenance::{health_check, HealthStatus};
 ///
-/// # async fn example(pool: &sqlite_rs::DatabasePool) -> Result<(), sqlite_rs::PoolError> {
+/// # async fn example(pool: &sqlite_kit::DatabasePool) -> Result<(), sqlite_kit::PoolError> {
 /// let health = health_check(pool).await?;
 ///
 /// match health.status {
@@ -169,9 +169,9 @@ pub async fn health_check(pool: &DatabasePool) -> Result<HealthCheck> {
 /// # Example
 ///
 /// ```rust,no_run
-/// use sqlite_rs::maintenance::ping;
+/// use sqlite_kit::maintenance::ping;
 ///
-/// # async fn example(pool: &sqlite_rs::DatabasePool) -> Result<(), sqlite_rs::PoolError> {
+/// # async fn example(pool: &sqlite_kit::DatabasePool) -> Result<(), sqlite_kit::PoolError> {
 /// match ping(pool).await {
 ///     Ok(latency) => println!("Ping: {:?}", latency),
 ///     Err(e) => println!("Database unreachable: {}", e),

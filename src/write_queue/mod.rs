@@ -50,7 +50,7 @@
 //! # Example
 //!
 //! ```rust,ignore
-//! use sqlite_rs::write_queue::{OverflowPolicy, PoolWriteQueue, WriteQueueConfig};
+//! use sqlite_kit::write_queue::{OverflowPolicy, PoolWriteQueue, WriteQueueConfig};
 //! use std::sync::Arc;
 //! use std::time::Duration;
 //!

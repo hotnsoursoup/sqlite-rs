@@ -1,4 +1,4 @@
-# sqlite-rs
+# sqlite-kit
 
 [![CI](https://github.com/hotnsoursoup/sqlite-rs/actions/workflows/ci.yml/badge.svg)](https://github.com/hotnsoursoup/sqlite-rs/actions/workflows/ci.yml)
 ![MSRV](https://img.shields.io/badge/MSRV-1.77-blue)
@@ -35,23 +35,23 @@ concurrent load.
 
 ```toml
 [dependencies]
-sqlite-rs = { git = "https://github.com/hotnsoursoup/sqlite-rs", tag = "v0.2.0" }
+sqlite-kit = "0.2"
 tokio = { version = "1", features = ["full"] }
 ```
 
-Pin to a commit for reproducibility:
+Or track the repository directly:
 
 ```toml
-sqlite-rs = { git = "https://github.com/hotnsoursoup/sqlite-rs", rev = "<commit-sha>" }
+sqlite-kit = { git = "https://github.com/hotnsoursoup/sqlite-rs", tag = "v0.2.0" }
 ```
 
 ## Quick start
 
 ```rust
-use sqlite_rs::{DatabasePool, Migration, PoolConfig};
+use sqlite_kit::{DatabasePool, Migration, PoolConfig};
 
 #[tokio::main]
-async fn main() -> Result<(), sqlite_rs::PoolError> {
+async fn main() -> Result<(), sqlite_kit::PoolError> {
     let pool = DatabasePool::open("data/app.db", PoolConfig::default()).await?;
 
     pool.migrate(&[
@@ -104,7 +104,7 @@ independently.
 ## Configuration
 
 ```rust
-use sqlite_rs::{PoolConfig, SynchronousMode, WalConfig};
+use sqlite_kit::{PoolConfig, SynchronousMode, WalConfig};
 use std::time::Duration;
 
 // Built-in presets
@@ -127,7 +127,7 @@ an `init_hook` for `PRAGMA` overrides per connection.
 ## Migrations
 
 ```rust
-use sqlite_rs::Migration;
+use sqlite_kit::Migration;
 
 const MIGRATIONS: &[Migration] = &[
     Migration::baseline("1.0.0", include_str!("../migrations/001_initial.sql")),
@@ -152,7 +152,7 @@ bottleneck. The optional `PoolWriteQueue` serialises writes through a bounded
 channel with a chosen overflow policy.
 
 ```rust
-use sqlite_rs::write_queue::{PoolWriteQueue, WriteQueueConfig, OverflowPolicy};
+use sqlite_kit::write_queue::{PoolWriteQueue, WriteQueueConfig, OverflowPolicy};
 use std::sync::Arc;
 use std::time::Duration;
 
@@ -207,9 +207,9 @@ For operation-level observability, attach observers to the pool config and keep
 handles to the observers you want to inspect later:
 
 ```rust
-use sqlite_rs::observer::{MetricsCollector, QueryLogger};
-use sqlite_rs::profiling::QueryProfiler;
-use sqlite_rs::PoolConfig;
+use sqlite_kit::observer::{MetricsCollector, QueryLogger};
+use sqlite_kit::profiling::QueryProfiler;
+use sqlite_kit::PoolConfig;
 use std::time::Duration;
 
 let metrics = MetricsCollector::new();
@@ -227,7 +227,7 @@ let query_metrics = metrics.snapshot();
 
 ## SQL safety
 
-`sqlite-rs` is intentionally close to `rusqlite`: callers still own SQL text
+`sqlite-kit` is intentionally close to `rusqlite`: callers still own SQL text
 and should bind values through parameters. Helper APIs quote identifiers where
 they construct SQL from names, and batch inserters bind row values as parameters.
 
@@ -239,7 +239,7 @@ Do not pass end-user text into those fragment positions. See
 ## Error handling
 
 ```rust
-use sqlite_rs::PoolError;
+use sqlite_kit::PoolError;
 
 match pool.write(|c| c.execute("INSERT INTO ...", [])).await {
     Ok(_) => {}
@@ -258,10 +258,10 @@ match pool.write(|c| c.execute("INSERT INTO ...", [])).await {
 
 ```toml
 # Minimal build
-sqlite-rs = { git = "...", default-features = false }
+sqlite-kit = { version = "0.2", default-features = false }
 
 # With tracing
-sqlite-rs = { git = "...", features = ["tracing"] }
+sqlite-kit = { version = "0.2", features = ["tracing"] }
 ```
 
 [`tracing`]: https://crates.io/crates/tracing

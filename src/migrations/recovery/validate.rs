@@ -45,8 +45,8 @@ pub enum SchemaIssue {
 /// # Example
 ///
 /// ```rust,no_run
-/// # fn example(conn: &rusqlite::Connection) -> Result<(), sqlite_rs::PoolError> {
-/// let issues = sqlite_rs::validate_schema_integrity(conn, &["users", "posts", "comments"])?;
+/// # fn example(conn: &rusqlite::Connection) -> Result<(), sqlite_kit::PoolError> {
+/// let issues = sqlite_kit::validate_schema_integrity(conn, &["users", "posts", "comments"])?;
 /// if issues.is_empty() {
 ///     println!("Schema is valid");
 /// } else {
@@ -118,8 +118,8 @@ pub fn validate_schema_integrity(
 /// # Example
 ///
 /// ```rust,no_run
-/// # fn example(conn: &rusqlite::Connection) -> Result<(), sqlite_rs::PoolError> {
-/// let issues = sqlite_rs::validate_table_columns(conn, &[
+/// # fn example(conn: &rusqlite::Connection) -> Result<(), sqlite_kit::PoolError> {
+/// let issues = sqlite_kit::validate_table_columns(conn, &[
 ///     ("users", &["id", "name", "email"]),
 ///     ("posts", &["id", "user_id", "title", "content"]),
 /// ])?;

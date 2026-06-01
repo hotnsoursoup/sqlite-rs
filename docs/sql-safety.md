@@ -1,6 +1,6 @@
 # SQL safety boundary
 
-`sqlite-rs` stays close to `rusqlite`: callers write SQL, pass parameters, and
+`sqlite-kit` stays close to `rusqlite`: callers write SQL, pass parameters, and
 receive rows. The crate adds pooling, migrations, queues, and utility helpers;
 it is not a SQL firewall or ORM.
 

@@ -31,12 +31,12 @@ Attach observers to `PoolConfig`. Keep cloned handles to the observers you want
 to inspect later.
 
 ```rust
-use sqlite_rs::observer::{MetricsCollector, QueryLogger};
-use sqlite_rs::profiling::QueryProfiler;
-use sqlite_rs::{DatabasePool, PoolConfig};
+use sqlite_kit::observer::{MetricsCollector, QueryLogger};
+use sqlite_kit::profiling::QueryProfiler;
+use sqlite_kit::{DatabasePool, PoolConfig};
 use std::time::Duration;
 
-# async fn example() -> Result<(), sqlite_rs::PoolError> {
+# async fn example() -> Result<(), sqlite_kit::PoolError> {
 let metrics = MetricsCollector::new();
 let profiler = QueryProfiler::new(Duration::from_millis(100));
 
@@ -62,7 +62,7 @@ Implement `observer::Observer` instead of the old middleware trait. Use
 `after_operation` for non-failing metrics/logging.
 
 ```rust
-use sqlite_rs::observer::{Observer, ObserverError, ObserverResult, OperationContext};
+use sqlite_kit::observer::{Observer, ObserverError, ObserverResult, OperationContext};
 use std::time::Duration;
 
 struct ReadOnlyGate;
@@ -97,11 +97,11 @@ let queue = WriteQueue::new(conn, WriteQueueConfig::default());
 ### After
 
 ```rust
-use sqlite_rs::write_queue::{PoolWriteQueue, WriteQueueConfig};
-use sqlite_rs::{DatabasePool, PoolConfig};
+use sqlite_kit::write_queue::{PoolWriteQueue, WriteQueueConfig};
+use sqlite_kit::{DatabasePool, PoolConfig};
 use std::sync::Arc;
 
-# async fn example() -> Result<(), sqlite_rs::PoolError> {
+# async fn example() -> Result<(), sqlite_kit::PoolError> {
 let pool = Arc::new(DatabasePool::open("data/app.db", PoolConfig::default()).await?);
 let queue = PoolWriteQueue::new(Arc::clone(&pool), WriteQueueConfig::default());
 

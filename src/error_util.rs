@@ -1,4 +1,4 @@
-//! Error handling utilities for sqlite-rs.
+//! Error handling utilities for sqlite-kit.
 //!
 //! Kept lightweight and dependency-free so it works in all feature sets.
 
@@ -17,7 +17,7 @@ const MAX_ERROR_CHAIN_DEPTH: usize = 32;
 /// # Example
 ///
 /// ```
-/// use sqlite_rs::error_util::ErrorChain;
+/// use sqlite_kit::error_util::ErrorChain;
 /// use std::io;
 ///
 /// let err = io::Error::new(io::ErrorKind::Other, "outer error");

@@ -18,7 +18,7 @@ use rusqlite::Connection;
 /// # Example
 ///
 /// ```rust,no_run
-/// use sqlite_rs::{reset_database, Migration, MigrationKind};
+/// use sqlite_kit::{reset_database, Migration, MigrationKind};
 ///
 /// const MIGRATIONS: &[Migration] = &[
 ///     Migration {
@@ -31,7 +31,7 @@ use rusqlite::Connection;
 ///     },
 /// ];
 ///
-/// # fn example(conn: &mut rusqlite::Connection) -> Result<(), sqlite_rs::PoolError> {
+/// # fn example(conn: &mut rusqlite::Connection) -> Result<(), sqlite_kit::PoolError> {
 /// // This will delete all data!
 /// reset_database(conn, MIGRATIONS)?;
 /// # Ok(())
@@ -46,9 +46,9 @@ pub fn reset_database(conn: &mut Connection, migrations: &[Migration]) -> Result
 /// # Example
 ///
 /// ```rust,no_run
-/// use sqlite_rs::{reset_database_with_options, Migration, MigrationOptions};
+/// use sqlite_kit::{reset_database_with_options, Migration, MigrationOptions};
 ///
-/// # fn example(conn: &mut rusqlite::Connection, migrations: &[Migration]) -> Result<(), sqlite_rs::PoolError> {
+/// # fn example(conn: &mut rusqlite::Connection, migrations: &[Migration]) -> Result<(), sqlite_kit::PoolError> {
 /// reset_database_with_options(
 ///     conn,
 ///     migrations,
@@ -112,8 +112,8 @@ pub fn reset_database_with_options(
 /// # Example
 ///
 /// ```rust,no_run
-/// # fn example(conn: &mut rusqlite::Connection) -> Result<(), sqlite_rs::PoolError> {
-/// sqlite_rs::drop_all_tables(conn)?;
+/// # fn example(conn: &mut rusqlite::Connection) -> Result<(), sqlite_kit::PoolError> {
+/// sqlite_kit::drop_all_tables(conn)?;
 /// # Ok(())
 /// # }
 /// ```

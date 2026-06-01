@@ -47,9 +47,9 @@ impl VacuumStats {
 /// # Example
 ///
 /// ```rust,no_run
-/// use sqlite_rs::maintenance::vacuum;
+/// use sqlite_kit::maintenance::vacuum;
 ///
-/// # async fn example(pool: &sqlite_rs::DatabasePool) -> Result<(), sqlite_rs::PoolError> {
+/// # async fn example(pool: &sqlite_kit::DatabasePool) -> Result<(), sqlite_kit::PoolError> {
 /// let stats = vacuum(pool).await?;
 /// println!("Reclaimed {} bytes", stats.space_reclaimed);
 /// # Ok(())
@@ -100,9 +100,9 @@ pub async fn vacuum(pool: &DatabasePool) -> Result<VacuumStats> {
 /// # Example
 ///
 /// ```rust,no_run
-/// use sqlite_rs::maintenance::vacuum_into;
+/// use sqlite_kit::maintenance::vacuum_into;
 ///
-/// # async fn example(pool: &sqlite_rs::DatabasePool) -> Result<(), sqlite_rs::PoolError> {
+/// # async fn example(pool: &sqlite_kit::DatabasePool) -> Result<(), sqlite_kit::PoolError> {
 /// vacuum_into(pool, "backup/compacted.db").await?;
 /// # Ok(())
 /// # }
@@ -143,9 +143,9 @@ pub async fn vacuum_into<P: AsRef<Path>>(pool: &DatabasePool, target_path: P) ->
 /// # Example
 ///
 /// ```rust,no_run
-/// use sqlite_rs::maintenance::analyze;
+/// use sqlite_kit::maintenance::analyze;
 ///
-/// # async fn example(pool: &sqlite_rs::DatabasePool) -> Result<(), sqlite_rs::PoolError> {
+/// # async fn example(pool: &sqlite_kit::DatabasePool) -> Result<(), sqlite_kit::PoolError> {
 /// // After bulk import
 /// analyze(pool).await?;
 /// # Ok(())
@@ -164,9 +164,9 @@ pub async fn analyze(pool: &DatabasePool) -> Result<()> {
 /// # Example
 ///
 /// ```rust,no_run
-/// use sqlite_rs::maintenance::analyze_table;
+/// use sqlite_kit::maintenance::analyze_table;
 ///
-/// # async fn example(pool: &sqlite_rs::DatabasePool) -> Result<(), sqlite_rs::PoolError> {
+/// # async fn example(pool: &sqlite_kit::DatabasePool) -> Result<(), sqlite_kit::PoolError> {
 /// analyze_table(pool, "orders").await?;
 /// # Ok(())
 /// # }
@@ -190,9 +190,9 @@ pub async fn analyze_table(pool: &DatabasePool, table: &str) -> Result<()> {
 /// # Example
 ///
 /// ```rust,no_run
-/// use sqlite_rs::maintenance::set_auto_vacuum;
+/// use sqlite_kit::maintenance::set_auto_vacuum;
 ///
-/// # async fn example(pool: &sqlite_rs::DatabasePool) -> Result<(), sqlite_rs::PoolError> {
+/// # async fn example(pool: &sqlite_kit::DatabasePool) -> Result<(), sqlite_kit::PoolError> {
 /// // Enable incremental auto-vacuum
 /// set_auto_vacuum(pool, 2).await?;
 /// # Ok(())
@@ -218,9 +218,9 @@ pub async fn set_auto_vacuum(pool: &DatabasePool, mode: u8) -> Result<()> {
 /// # Example
 ///
 /// ```rust,no_run
-/// use sqlite_rs::maintenance::incremental_vacuum;
+/// use sqlite_kit::maintenance::incremental_vacuum;
 ///
-/// # async fn example(pool: &sqlite_rs::DatabasePool) -> Result<(), sqlite_rs::PoolError> {
+/// # async fn example(pool: &sqlite_kit::DatabasePool) -> Result<(), sqlite_kit::PoolError> {
 /// // Reclaim up to 100 pages
 /// incremental_vacuum(pool, 100).await?;
 /// # Ok(())
@@ -243,9 +243,9 @@ pub async fn incremental_vacuum(pool: &DatabasePool, pages: u32) -> Result<()> {
 /// # Example
 ///
 /// ```rust,no_run
-/// use sqlite_rs::maintenance::optimize;
+/// use sqlite_kit::maintenance::optimize;
 ///
-/// # async fn example(pool: &sqlite_rs::DatabasePool) -> Result<(), sqlite_rs::PoolError> {
+/// # async fn example(pool: &sqlite_kit::DatabasePool) -> Result<(), sqlite_kit::PoolError> {
 /// // Run before app shutdown
 /// optimize(pool).await?;
 /// # Ok(())

@@ -13,7 +13,7 @@
 //! # Example
 //!
 //! ```rust,no_run
-//! use sqlite_rs::{
+//! use sqlite_kit::{
 //!     DatabasePool, Migration, MigrationKind, MigrationOptions,
 //!     run_migrations, run_migrations_with_options,
 //!     get_migration_history, get_pending_migrations,
@@ -39,7 +39,7 @@
 //!     },
 //! ];
 //!
-//! # fn example(conn: &mut rusqlite::Connection) -> Result<(), sqlite_rs::PoolError> {
+//! # fn example(conn: &mut rusqlite::Connection) -> Result<(), sqlite_kit::PoolError> {
 //! // Simple migration (recommended for most cases)
 //! run_migrations(conn, MIGRATIONS)?;
 //!
@@ -61,7 +61,7 @@
 //! For cleaner migration definitions:
 //!
 //! ```rust
-//! use sqlite_rs::Migration;
+//! use sqlite_kit::Migration;
 //!
 //! const MIGRATIONS: &[Migration] = &[
 //!     Migration::baseline("1.0.0", r#"
@@ -77,9 +77,9 @@
 //! # Schema Validation and Recovery
 //!
 //! ```rust,no_run
-//! use sqlite_rs::{validate_schema_integrity, reset_database, Migration};
+//! use sqlite_kit::{validate_schema_integrity, reset_database, Migration};
 //!
-//! # fn example(conn: &mut rusqlite::Connection, migrations: &[Migration]) -> Result<(), sqlite_rs::PoolError> {
+//! # fn example(conn: &mut rusqlite::Connection, migrations: &[Migration]) -> Result<(), sqlite_kit::PoolError> {
 //! // Check schema integrity
 //! let issues = validate_schema_integrity(conn, &["users", "posts"])?;
 //! if !issues.is_empty() {

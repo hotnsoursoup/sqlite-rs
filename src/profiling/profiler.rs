@@ -14,7 +14,7 @@ use std::time::{Duration, Instant};
 /// # Example
 ///
 /// ```rust
-/// use sqlite_rs::profiling::QueryProfiler;
+/// use sqlite_kit::profiling::QueryProfiler;
 /// use std::time::Duration;
 ///
 /// let profiler = QueryProfiler::new(Duration::from_millis(100));
@@ -165,7 +165,7 @@ impl<'a> ProfiledConnection<'a> {
 /// # Example
 ///
 /// ```rust
-/// use sqlite_rs::profiling::timed;
+/// use sqlite_kit::profiling::timed;
 ///
 /// let (duration, result) = timed(|| {
 ///     // Some operation

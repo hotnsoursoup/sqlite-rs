@@ -6,7 +6,7 @@
 //! # Example
 //!
 //! ```rust,ignore
-//! use sqlite_rs::{DatabasePool, Savepoint};
+//! use sqlite_kit::{DatabasePool, Savepoint};
 //!
 //! // Within a transaction closure:
 //! pool.transaction(|tx| {
@@ -85,8 +85,8 @@ impl<'tx> Savepoint<'tx> {
     /// # Example
     ///
     /// ```rust,no_run
-    /// # use sqlite_rs::Savepoint;
-    /// # fn example(tx: &rusqlite::Transaction) -> Result<(), sqlite_rs::PoolError> {
+    /// # use sqlite_kit::Savepoint;
+    /// # fn example(tx: &rusqlite::Transaction) -> Result<(), sqlite_kit::PoolError> {
     /// let sp = Savepoint::new(tx, "my_savepoint")?;
     /// // ... do work ...
     /// sp.commit()?;
@@ -170,8 +170,8 @@ impl<'tx> Savepoint<'tx> {
     /// # Example
     ///
     /// ```rust,no_run
-    /// # use sqlite_rs::Savepoint;
-    /// # fn example(tx: &rusqlite::Transaction) -> Result<(), sqlite_rs::PoolError> {
+    /// # use sqlite_kit::Savepoint;
+    /// # fn example(tx: &rusqlite::Transaction) -> Result<(), sqlite_kit::PoolError> {
     /// let sp = Savepoint::new(tx, "sp1")?;
     /// sp.transaction().execute("INSERT INTO log (msg) VALUES (?)", ["test"])?;
     /// sp.commit()?;

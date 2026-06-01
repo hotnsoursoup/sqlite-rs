@@ -35,9 +35,9 @@ pub struct ForeignKeyViolation {
 /// # Example
 ///
 /// ```rust,no_run
-/// use sqlite_rs::backup::integrity_check;
+/// use sqlite_kit::backup::integrity_check;
 ///
-/// # async fn example(pool: &sqlite_rs::DatabasePool) -> Result<(), sqlite_rs::PoolError> {
+/// # async fn example(pool: &sqlite_kit::DatabasePool) -> Result<(), sqlite_kit::PoolError> {
 /// let issues = integrity_check(pool).await?;
 /// if issues.is_empty() {
 ///     println!("Database is healthy");
@@ -77,9 +77,9 @@ pub async fn integrity_check(pool: &DatabasePool) -> Result<Vec<IntegrityIssue>>
 /// # Example
 ///
 /// ```rust,no_run
-/// use sqlite_rs::backup::quick_check;
+/// use sqlite_kit::backup::quick_check;
 ///
-/// # async fn example(pool: &sqlite_rs::DatabasePool) -> Result<(), sqlite_rs::PoolError> {
+/// # async fn example(pool: &sqlite_kit::DatabasePool) -> Result<(), sqlite_kit::PoolError> {
 /// let issues = quick_check(pool).await?;
 /// if issues.is_empty() {
 ///     println!("Quick check passed");
@@ -115,9 +115,9 @@ pub async fn quick_check(pool: &DatabasePool) -> Result<Vec<IntegrityIssue>> {
 /// # Example
 ///
 /// ```rust,no_run
-/// use sqlite_rs::backup::foreign_key_check;
+/// use sqlite_kit::backup::foreign_key_check;
 ///
-/// # async fn example(pool: &sqlite_rs::DatabasePool) -> Result<(), sqlite_rs::PoolError> {
+/// # async fn example(pool: &sqlite_kit::DatabasePool) -> Result<(), sqlite_kit::PoolError> {
 /// let violations = foreign_key_check(pool).await?;
 /// for v in &violations {
 ///     eprintln!(

@@ -40,7 +40,7 @@ pub type ObserverResult<T> = std::result::Result<T, ObserverError>;
 /// # Example
 ///
 /// ```rust
-/// use sqlite_rs::observer::{Observer, ObserverResult, OperationContext};
+/// use sqlite_kit::observer::{Observer, ObserverResult, OperationContext};
 /// use std::time::Duration;
 ///
 /// struct MyObserver;

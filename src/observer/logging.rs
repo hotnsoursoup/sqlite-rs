@@ -12,7 +12,7 @@ use std::time::Duration;
 /// # Example
 ///
 /// ```rust
-/// use sqlite_rs::observer::QueryLogger;
+/// use sqlite_kit::observer::QueryLogger;
 ///
 /// // Default: log slow queries (>100ms)
 /// let logger = QueryLogger::new();
@@ -40,7 +40,7 @@ impl Default for QueryLogger {
             slow_threshold_ms: 100,
             log_all: false,
             max_sql_length: 1000,
-            log_prefix: "[sqlite-rs]",
+            log_prefix: "[sqlite-kit]",
         }
     }
 }

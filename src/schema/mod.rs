@@ -8,7 +8,7 @@
 //! # Example
 //!
 //! ```rust,no_run
-//! use sqlite_rs::schema::{column_exists, safe_add_column, ColumnDef};
+//! use sqlite_kit::schema::{column_exists, safe_add_column, ColumnDef};
 //!
 //! # fn example(conn: &rusqlite::Connection) -> Result<(), rusqlite::Error> {
 //! // Check if column exists before querying it

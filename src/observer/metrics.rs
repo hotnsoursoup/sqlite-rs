@@ -143,7 +143,7 @@ impl AtomicMetrics {
 /// # Example
 ///
 /// ```rust
-/// use sqlite_rs::observer::MetricsCollector;
+/// use sqlite_kit::observer::MetricsCollector;
 ///
 /// let collector = MetricsCollector::new();
 ///

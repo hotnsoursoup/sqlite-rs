@@ -13,7 +13,7 @@ use std::time::Duration;
 /// # Example
 ///
 /// ```rust,no_run
-/// use sqlite_rs::{PoolConfig, InitHook};
+/// use sqlite_kit::{PoolConfig, InitHook};
 /// use std::sync::Arc;
 ///
 /// // Register custom setup (e.g., application_id)
@@ -28,7 +28,7 @@ use std::time::Duration;
 /// For registering custom SQL functions (requires rusqlite `functions` feature):
 ///
 /// ```rust,ignore
-/// use sqlite_rs::{PoolConfig, InitHook};
+/// use sqlite_kit::{PoolConfig, InitHook};
 /// use std::sync::Arc;
 ///
 /// let hook: InitHook = Arc::new(|conn| {

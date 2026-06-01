@@ -13,9 +13,9 @@
 //! # Example
 //!
 //! ```rust,no_run
-//! use sqlite_rs::{validate_schema_integrity, reset_database, Migration};
+//! use sqlite_kit::{validate_schema_integrity, reset_database, Migration};
 //!
-//! # fn example(conn: &mut rusqlite::Connection, migrations: &[Migration]) -> Result<(), sqlite_rs::PoolError> {
+//! # fn example(conn: &mut rusqlite::Connection, migrations: &[Migration]) -> Result<(), sqlite_kit::PoolError> {
 //! // Check if schema is valid
 //! let issues = validate_schema_integrity(conn, &["users", "posts"])?;
 //! if !issues.is_empty() {

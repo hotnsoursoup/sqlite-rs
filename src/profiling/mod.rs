@@ -6,7 +6,7 @@
 //! # Example
 //!
 //! ```rust,no_run
-//! use sqlite_rs::profiling::{QueryStats, SlowQueryLogger};
+//! use sqlite_kit::profiling::{QueryStats, SlowQueryLogger};
 //! use std::time::Duration;
 //!
 //! # fn example() {

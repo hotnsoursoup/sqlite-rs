@@ -146,9 +146,9 @@ fn build_insert_sql(
 /// # Example
 ///
 /// ```rust
-/// use sqlite_rs::batch::{BatchInserter, UpsertMode};
+/// use sqlite_kit::batch::{BatchInserter, UpsertMode};
 ///
-/// # fn example(conn: &mut rusqlite::Connection) -> Result<(), sqlite_rs::PoolError> {
+/// # fn example(conn: &mut rusqlite::Connection) -> Result<(), sqlite_kit::PoolError> {
 /// # conn.execute("CREATE TABLE users (id INTEGER PRIMARY KEY, name TEXT, email TEXT)", [])?;
 /// let mut inserter = BatchInserter::new("users", &["name", "email"])
 ///     .with_upsert_mode(UpsertMode::Replace);
@@ -291,10 +291,10 @@ impl BatchInserter {
 /// # Example
 ///
 /// ```rust
-/// use sqlite_rs::batch::{TypedBatchInserter, BatchConfig, UpsertMode};
+/// use sqlite_kit::batch::{TypedBatchInserter, BatchConfig, UpsertMode};
 /// use rusqlite::types::Value;
 ///
-/// # fn example(conn: &mut rusqlite::Connection) -> Result<(), sqlite_rs::PoolError> {
+/// # fn example(conn: &mut rusqlite::Connection) -> Result<(), sqlite_kit::PoolError> {
 /// # conn.execute("CREATE TABLE products (id INTEGER PRIMARY KEY, name TEXT, price REAL, stock INTEGER)", [])?;
 /// let mut inserter = TypedBatchInserter::new("products", &["name", "price", "stock"]);
 ///
@@ -373,7 +373,7 @@ impl TypedBatchInserter {
     /// # Example
     ///
     /// ```rust
-    /// # use sqlite_rs::batch::TypedBatchInserter;
+    /// # use sqlite_kit::batch::TypedBatchInserter;
     /// # let mut inserter = TypedBatchInserter::new("test", &["a", "b", "c"]);
     /// inserter.row()
     ///     .text("hello")
@@ -516,9 +516,9 @@ impl<'a> RowBuilder<'a> {
 /// # Example
 ///
 /// ```rust,no_run
-/// use sqlite_rs::batch::insert_many;
+/// use sqlite_kit::batch::insert_many;
 ///
-/// # fn example(conn: &mut rusqlite::Connection) -> Result<(), sqlite_rs::PoolError> {
+/// # fn example(conn: &mut rusqlite::Connection) -> Result<(), sqlite_kit::PoolError> {
 /// let rows = vec![
 ///     vec!["Alice", "alice@example.com"],
 ///     vec!["Bob", "bob@example.com"],

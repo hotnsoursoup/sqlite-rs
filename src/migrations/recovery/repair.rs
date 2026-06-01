@@ -34,9 +34,9 @@ pub struct RepairResult {
 /// # Example
 ///
 /// ```rust,no_run
-/// use sqlite_rs::{repair_database, Migration};
+/// use sqlite_kit::{repair_database, Migration};
 ///
-/// # fn example(conn: &mut rusqlite::Connection, migrations: &[Migration]) -> Result<(), sqlite_rs::PoolError> {
+/// # fn example(conn: &mut rusqlite::Connection, migrations: &[Migration]) -> Result<(), sqlite_kit::PoolError> {
 /// let result = repair_database(conn, migrations)?;
 /// println!("Repaired database, {} tables rebuilt", result.tables_rebuilt);
 /// # Ok(())

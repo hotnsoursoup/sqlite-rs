@@ -1,9 +1,9 @@
-# When to use sqlite-rs
+# When to use sqlite-kit
 
 SQLite is a synchronous, in-process, file-backed database. There is no socket,
 no remote server, no I/O wait on a third party. Wrapping it in async is a
 deliberate engineering choice — useful in some contexts, dead weight in others.
-This document is a scope statement: what `sqlite-rs` is for, what it isn't, and
+This document is a scope statement: what `sqlite-kit` is for, what it isn't, and
 how it relates to the alternatives.
 
 ## What async actually buys you
@@ -38,7 +38,7 @@ runtime:
 - **Benefit in a sync app.** If you're not on tokio, the wrapping is overhead
   with no upside. Reach for [`rusqlite`] + [`r2d2`] directly.
 
-## When to reach for sqlite-rs
+## When to reach for sqlite-kit
 
 Good fit:
 
@@ -71,10 +71,10 @@ Not a good fit:
 | `rusqlite` + `r2d2`  | Sync, pooled              | Sync web frameworks, batch jobs                        |
 | `sqlx` (sqlite)      | Async, query-checked      | You want compile-time query checking + multi-backend   |
 | `sea-orm`            | Async ORM                 | You want an ORM with multi-backend support             |
-| `sqlite-rs`          | Async, read/write split   | tokio app, want read concurrency + write coordination  |
+| `sqlite-kit`          | Async, read/write split   | tokio app, want read concurrency + write coordination  |
 
 `sqlx` and `sea-orm` are heavier and more opinionated; both are fine choices
-for new code. `sqlite-rs` stays close to raw SQL and `rusqlite` idioms — you
+for new code. `sqlite-kit` stays close to raw SQL and `rusqlite` idioms — you
 write your queries, you get the rows back. The split pool, WAL monitor,
 migrations, and write queue are the value-add.
 

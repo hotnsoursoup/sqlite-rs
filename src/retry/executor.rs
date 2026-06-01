@@ -36,9 +36,9 @@ pub fn is_retryable_error(error: &rusqlite::Error) -> bool {
 /// # Example
 ///
 /// ```rust,no_run
-/// use sqlite_rs::retry::{with_retry, RetryConfig};
+/// use sqlite_kit::retry::{with_retry, RetryConfig};
 ///
-/// # fn example(conn: &mut rusqlite::Connection) -> Result<(), sqlite_rs::PoolError> {
+/// # fn example(conn: &mut rusqlite::Connection) -> Result<(), sqlite_kit::PoolError> {
 /// let rows = with_retry(RetryConfig::default(), || {
 ///     conn.execute("UPDATE counters SET value = value + 1", [])
 /// })?;
@@ -98,9 +98,9 @@ where
 /// # Example
 ///
 /// ```rust,no_run
-/// use sqlite_rs::retry::{with_retry_async, RetryConfig};
+/// use sqlite_kit::retry::{with_retry_async, RetryConfig};
 ///
-/// # async fn example(pool: &sqlite_rs::DatabasePool) -> Result<(), sqlite_rs::PoolError> {
+/// # async fn example(pool: &sqlite_kit::DatabasePool) -> Result<(), sqlite_kit::PoolError> {
 /// let result = with_retry_async(RetryConfig::default(), || async {
 ///     pool.write(|conn| {
 ///         conn.execute("UPDATE counters SET value = value + 1", [])

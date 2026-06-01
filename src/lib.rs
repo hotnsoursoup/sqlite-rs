@@ -1,4 +1,4 @@
-//! # sqlite-rs
+//! # sqlite-kit
 //!
 //! High-performance SQLite connection pool with read/write split architecture,
 //! WAL monitoring, migration support, and comprehensive utilities.
@@ -19,10 +19,10 @@
 //! ## Quick Start
 //!
 //! ```rust,no_run
-//! use sqlite_rs::{DatabasePool, PoolConfig, Migration};
+//! use sqlite_kit::{DatabasePool, PoolConfig, Migration};
 //!
 //! #[tokio::main]
-//! async fn main() -> Result<(), sqlite_rs::PoolError> {
+//! async fn main() -> Result<(), sqlite_kit::PoolError> {
 //!     // Open with default config
 //!     let pool = DatabasePool::open("data/app.db", PoolConfig::default()).await?;
 //!

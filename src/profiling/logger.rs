@@ -20,7 +20,7 @@ pub type SlowQueryCallback = Arc<dyn Fn(&QueryStats) + Send + Sync>;
 /// # Example
 ///
 /// ```rust
-/// use sqlite_rs::profiling::{SlowQueryLogger, QueryStats};
+/// use sqlite_kit::profiling::{SlowQueryLogger, QueryStats};
 /// use std::time::Duration;
 ///
 /// let logger = SlowQueryLogger::new(Duration::from_millis(100))

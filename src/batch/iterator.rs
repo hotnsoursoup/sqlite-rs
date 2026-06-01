@@ -12,9 +12,9 @@ use rusqlite::Connection;
 /// # Example
 ///
 /// ```rust,no_run
-/// use sqlite_rs::batch::ChunkedIterator;
+/// use sqlite_kit::batch::ChunkedIterator;
 ///
-/// # fn example(conn: &rusqlite::Connection) -> Result<(), sqlite_rs::PoolError> {
+/// # fn example(conn: &rusqlite::Connection) -> Result<(), sqlite_kit::PoolError> {
 /// let iter = ChunkedIterator::<String>::new(
 ///     conn,
 ///     "SELECT name FROM users ORDER BY id",
@@ -111,9 +111,9 @@ impl<'conn, T> Iterator for ChunkedIterator<'conn, T> {
 /// # Example
 ///
 /// ```rust,no_run
-/// use sqlite_rs::batch::chunk_query;
+/// use sqlite_kit::batch::chunk_query;
 ///
-/// # fn example(conn: &rusqlite::Connection) -> Result<(), sqlite_rs::PoolError> {
+/// # fn example(conn: &rusqlite::Connection) -> Result<(), sqlite_kit::PoolError> {
 /// let mut total = 0;
 ///
 /// chunk_query(

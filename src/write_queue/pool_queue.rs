@@ -45,8 +45,8 @@ impl QueueTask for PoolWriteTask {
 /// # Example
 ///
 /// ```rust,ignore
-/// use sqlite_rs::{DatabasePool, PoolConfig};
-/// use sqlite_rs::write_queue::{PoolWriteQueue, WriteQueueConfig};
+/// use sqlite_kit::{DatabasePool, PoolConfig};
+/// use sqlite_kit::write_queue::{PoolWriteQueue, WriteQueueConfig};
 /// use std::sync::Arc;
 ///
 /// let pool = Arc::new(DatabasePool::open("data.db", PoolConfig::default()).await?);

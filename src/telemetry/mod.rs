@@ -1,4 +1,4 @@
-//! Logging / tracing helpers for sqlite-rs.
+//! Logging / tracing helpers for sqlite-kit.
 //!
 //! All macros are compiled out unless the `tracing` feature is enabled.
 //!
@@ -22,14 +22,14 @@ pub use span::DbSpan;
 pub use span::DbSpanGuard;
 pub use sql::{SqlStatement, DEFAULT_SQL_MAX_LEN};
 
-// Re-export the user-facing macro names (the `__sqlite_rs_*` names are
+// Re-export the user-facing macro names (the `__sqlite_kit_*` names are
 // crate-root macros declared with `#[macro_export]` so the aliases work
 // transparently from any module).
-pub use crate::__sqlite_rs_debug as debug;
-pub use crate::__sqlite_rs_error as error;
-pub use crate::__sqlite_rs_info as info;
-pub use crate::__sqlite_rs_trace as trace;
-pub use crate::__sqlite_rs_warn as warn;
+pub use crate::__sqlite_kit_debug as debug;
+pub use crate::__sqlite_kit_error as error;
+pub use crate::__sqlite_kit_info as info;
+pub use crate::__sqlite_kit_trace as trace;
+pub use crate::__sqlite_kit_warn as warn;
 
 use crate::error_util::ErrorChain;
 

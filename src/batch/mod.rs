@@ -9,9 +9,9 @@
 //! # Example
 //!
 //! ```rust,no_run
-//! use sqlite_rs::batch::{BatchInserter, TypedBatchInserter, BatchConfig};
+//! use sqlite_kit::batch::{BatchInserter, TypedBatchInserter, BatchConfig};
 //!
-//! # fn example(conn: &mut rusqlite::Connection) -> Result<(), sqlite_rs::PoolError> {
+//! # fn example(conn: &mut rusqlite::Connection) -> Result<(), sqlite_kit::PoolError> {
 //! // String-only bulk insert
 //! let mut inserter = BatchInserter::new("users", &["name", "email"]);
 //! inserter.add(&["Alice", "alice@example.com"]);

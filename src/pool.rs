@@ -33,9 +33,9 @@ use crate::wal::spawn_wal_monitor;
 /// # Example
 ///
 /// ```rust,no_run
-/// use sqlite_rs::{DatabasePool, PoolConfig};
+/// use sqlite_kit::{DatabasePool, PoolConfig};
 ///
-/// # async fn example() -> Result<(), sqlite_rs::PoolError> {
+/// # async fn example() -> Result<(), sqlite_kit::PoolError> {
 /// let pool = DatabasePool::open("data/app.db", PoolConfig::default()).await?;
 ///
 /// // Concurrent reads
@@ -178,8 +178,8 @@ impl DatabasePool {
     /// # Example
     ///
     /// ```rust,no_run
-    /// # async fn example() -> Result<(), sqlite_rs::PoolError> {
-    /// let pool = sqlite_rs::DatabasePool::open_in_memory().await?;
+    /// # async fn example() -> Result<(), sqlite_kit::PoolError> {
+    /// let pool = sqlite_kit::DatabasePool::open_in_memory().await?;
     /// // Use pool for testing...
     /// # Ok(())
     /// # }
@@ -311,9 +311,9 @@ impl DatabasePool {
     /// # Example
     ///
     /// ```rust,no_run
-    /// use sqlite_rs::DatabasePool;
+    /// use sqlite_kit::DatabasePool;
     ///
-    /// # async fn example(pool: &DatabasePool) -> Result<(), sqlite_rs::PoolError> {
+    /// # async fn example(pool: &DatabasePool) -> Result<(), sqlite_kit::PoolError> {
     /// // Consistent read of related data
     /// let (user, orders) = pool.read_transaction(|tx| {
     ///     let user: String = tx.query_row(

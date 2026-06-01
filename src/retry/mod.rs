@@ -6,9 +6,9 @@
 //! # Example
 //!
 //! ```rust,no_run
-//! use sqlite_rs::retry::{RetryConfig, with_retry};
+//! use sqlite_kit::retry::{RetryConfig, with_retry};
 //!
-//! # fn example(conn: &mut rusqlite::Connection) -> Result<(), sqlite_rs::PoolError> {
+//! # fn example(conn: &mut rusqlite::Connection) -> Result<(), sqlite_kit::PoolError> {
 //! // Retry with default config (3 attempts, exponential backoff)
 //! let result = with_retry(RetryConfig::default(), || {
 //!     conn.execute("UPDATE counters SET value = value + 1 WHERE id = 1", [])

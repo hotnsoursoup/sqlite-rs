@@ -1,5 +1,5 @@
 [package]
-name = "sqlite-rs"
+name = "sqlite-kit"
 version = "0.2.0"
 edition = "2021"
 rust-version = "1.77"
@@ -11,7 +11,7 @@ categories = ["database", "asynchronous"]
 exclude = ["Cargo.lock", ".github/**", ".internal/**", "target/**"]
 
 [lib]
-name = "sqlite_rs"
+name = "sqlite_kit"
 
 [features]
 default = ["wal-monitor"]

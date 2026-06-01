@@ -2,7 +2,7 @@
 
 ## Supported versions
 
-`sqlite-rs` is currently pre-1.0. Security fixes are applied to the active main
+`sqlite-kit` is currently pre-1.0. Security fixes are applied to the active main
 branch and to the latest published pre-1.0 line when practical.
 
 ## Reporting a vulnerability

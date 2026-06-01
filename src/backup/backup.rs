@@ -79,9 +79,9 @@ impl BackupProgress {
 /// # Example
 ///
 /// ```rust,no_run
-/// use sqlite_rs::backup::backup_database;
+/// use sqlite_kit::backup::backup_database;
 ///
-/// # async fn example(pool: &sqlite_rs::DatabasePool) -> Result<(), sqlite_rs::PoolError> {
+/// # async fn example(pool: &sqlite_kit::DatabasePool) -> Result<(), sqlite_kit::PoolError> {
 /// backup_database(pool, "backup.db").await?;
 /// # Ok(())
 /// # }
@@ -95,9 +95,9 @@ pub async fn backup_database<P: AsRef<Path>>(pool: &DatabasePool, dest: P) -> Re
 /// # Example
 ///
 /// ```rust,no_run
-/// use sqlite_rs::backup::backup_database_with_progress;
+/// use sqlite_kit::backup::backup_database_with_progress;
 ///
-/// # async fn example(pool: &sqlite_rs::DatabasePool) -> Result<(), sqlite_rs::PoolError> {
+/// # async fn example(pool: &sqlite_kit::DatabasePool) -> Result<(), sqlite_kit::PoolError> {
 /// backup_database_with_progress(pool, "backup.db", |progress| {
 ///     println!("Backup: {:.1}% complete", progress.percent());
 /// }).await?;
