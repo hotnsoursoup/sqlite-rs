@@ -42,7 +42,7 @@ tokio = { version = "1", features = ["full"] }
 Or track the repository directly:
 
 ```toml
-sqlite-kit = { git = "https://github.com/hotnsoursoup/sqlite-kit", tag = "v0.2.0" }
+sqlite-kit = { git = "https://github.com/hotnsoursoup/sqlite-kit", tag = "v0.2.1" }
 ```
 
 ## Quick start
